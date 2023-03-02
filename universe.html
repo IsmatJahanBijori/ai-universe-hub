@@ -19,13 +19,43 @@
     <!-- header section -->
     <header class="text-center">
         <h1 class=" mt-5 fw-bold">AI Universe Hub</h1>
-        <button class="btn btn-danger btn-lg mt-2">Sort By Date</button>
+        <button class="btn btn-danger btn-lg fw-bold mt-2">Sort By Date</button>
     </header>
 
     <!-- card added -->
     <section class="container">
         <div id="card-container" class="mt-5 row row-cols-1 row-cols-md-3 g-4">
-            
+        </div>
+
+        <!-- load more button -->
+        <div id="see-more" class="text-center mb-4">
+            <div id="btn-see-more" class="btn btn-primary fw-bold btn-lg">See more</div>
+        </div>
+    </section>
+
+    <!-- modal -->
+    <section>
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+<img src="" alt="" id="modalImage">
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <!-- bootstrap js -->
