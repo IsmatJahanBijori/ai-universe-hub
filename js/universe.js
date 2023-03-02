@@ -8,7 +8,7 @@ const displayDataDetails = (tools) => {
 
     const cardContainer = document.getElementById('card-container')
     cardContainer.textContent = ''
-    tools.tools.slice(0, 6).forEach(tool => {
+    tools.tools.forEach(tool => {
         // console.log(tool)
         const cardDiv = document.createElement('div')
         cardDiv.classList.add('col')
@@ -42,18 +42,38 @@ const fetchDetailsInfo = (id) => {
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`
     fetch(url).then(res => res.json()).then(data => showDetailsInfo(data.data))
 }
-const showDetailsInfo = (data)=>{
-    console.log(data.pricing[0].price)
-    console.log(data.pricing[1].price)
-    console.log(data.pricing[2].price)
-// title
-document.getElementById('exampleModalLabel').innerText=data.description
-// document.getElementById('modalBody').innerText=data.pricing[0].price
-// document.getElementById('modalBody').innerText=data.pricing[1].price
-// document.getElementById('modalBody').innerText=data.pricing[2].price
-document.getElementById('modalImage').innerText=data.image
+const showDetailsInfo = (data) => {
+    // console.log(data.pricing[0].price)
+    // console.log(data.pricing[1].price)
+    // console.log(data.pricing[2].price)
+    console.log(data)
+
+    const modalContainer = document.getElementById('modalBody')
+    modalContainer.textContent=''
+    const modalDiv = document.createElement('div')
+    modalDiv.innerHTML = `
+    <div class="row g-0">
+        <div class="col-md-8">
+            <div id="description">
+                <h5>${data.description}</h5>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                        <p>${data.pricing[0].plan}</p>
+                        <p>${data.pricing[0].price}</p>
+                        </div>
+                        <div><p>${data.pricing[1].plan}</p>
+                        <p>${data.pricing[1].price}</p>
+                        </div>
+                        <div><p>${data.pricing[2].plan}</p>
+                        <p>${data.pricing[2].price}</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <img id="modalImage" src="${data.image_link[1]}" class="img-fluid rounded-start" alt="...">
+        </div>
+    </div>`
+    modalContainer.appendChild(modalDiv)
 }
 loadDataDetails()
-// {/* <ol><li>${tools.tools[0].features}</li></ol>
-// {/* <li>${tools.features[1]}</li> */}
-                    // <li>${tools.features[2]}</li> }
